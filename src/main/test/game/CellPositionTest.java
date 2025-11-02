@@ -13,12 +13,9 @@ class CellPositionTest {
         Yard yard = new Yard(7,7, game);
         CellPosition pos = new CellPosition(5,6);
         boolean exp = true;
-        boolean result = false;
-
-        if (pos.row() == 5) result = true;
+        boolean result = pos.row() == 5;
 
         assertEquals(exp, result);
-
     }
 
     @Test
@@ -27,9 +24,7 @@ class CellPositionTest {
         Yard yard = new Yard(7,7, game);
         CellPosition pos = new CellPosition(5,6);
         boolean exp = true;
-        boolean result = false;
-
-        if (pos.column() == 6) result = true;
+        boolean result = pos.column() == 6;
 
         assertEquals(exp, result);
     }
@@ -40,12 +35,9 @@ class CellPositionTest {
         Yard yard = new Yard(7,7, game);
         CellPosition pos = new CellPosition(5,6);
         boolean exp = true;
-        boolean result = false;
-
-        if (pos.isValid()) result = true;
+        boolean result = pos.isValid();
 
         assertEquals(exp, result);
-
     }
 
     @Test
@@ -53,12 +45,10 @@ class CellPositionTest {
         Game game = new Game();
         Yard yard = new Yard(7,7, game);
         CellPosition pos = new CellPosition(5,6);
-        boolean exp = true;
-        boolean result = false;
 
         CellPosition newPos = pos.clone();
-
-        if (pos.equals(newPos)) result = true;
+        boolean exp = true;
+        boolean result = pos.equals(newPos);
 
         assertEquals(exp, result);
     }
@@ -73,12 +63,9 @@ class CellPositionTest {
 
         CellPosition pos = box.position().next(Direction.east());
         boolean exp = true;
-        boolean result = false;
-
-        if (pos.equals(new CellPosition(1,2))) result = true;
+        boolean result = pos.equals(new CellPosition(1, 2));
 
         assertEquals(exp, result);
-
     }
 
     @Test
@@ -91,9 +78,7 @@ class CellPositionTest {
 
         CellPosition pos = box.position().next(Direction.east());
         boolean exp = true;
-        boolean result = false;
-
-        if (pos.hasNext(Direction.east())) result = true;
+        boolean result = pos.hasNext(Direction.east());
 
         assertEquals(exp, result);
     }
@@ -104,11 +89,8 @@ class CellPositionTest {
         CellPosition newPos = new CellPosition(1,1);
 
         boolean exp = true;
-        boolean result = false;
-
-        result = pos.equals(newPos);
+        boolean result = pos.equals(newPos);
 
         assertEquals(exp, result);
-
     }
 }

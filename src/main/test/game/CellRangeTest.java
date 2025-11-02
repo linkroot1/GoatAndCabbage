@@ -11,9 +11,7 @@ class CellRangeTest {
         CellRange range = new CellRange(5,6);
 
         boolean exp = true;
-        boolean result = false;
-
-        result = range.min() == 5;
+        boolean result = range.min() == 5;
 
         assertEquals(exp, result);
     }
@@ -24,9 +22,7 @@ class CellRangeTest {
         CellRange range = new CellRange(5,6);
 
         boolean exp = true;
-        boolean result = false;
-
-        result = range.max() == 6;
+        boolean result = range.max() == 6;
 
         assertEquals(exp, result);
     }
@@ -36,26 +32,16 @@ class CellRangeTest {
         CellRange range = new CellRange(5,6);
 
         boolean exp = true;
-        boolean result = false;
-
-
-        result = range.length() == 2;
+        boolean result = range.length() == 2;
 
         assertEquals(exp, result);
     }
 
     @Test
     void isValidRange() {
-
         boolean exp = true;
-        boolean result = false;
-
-        result = CellRange.isValidRange(5,6);
+        boolean result = CellRange.isValidRange(5,6);
 
         assertEquals(exp, result);
-    }
-
-    @Test
-    void contains() {
     }
 }

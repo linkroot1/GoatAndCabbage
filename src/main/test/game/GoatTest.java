@@ -9,15 +9,12 @@ class GoatTest {
 
     @Test
     void getEnergy() {
-
-        boolean result = false;
-        boolean exp = true;
-
         Goat goat = new Goat(8);
 
-        if (goat.getEnergy() == 8) result = true;
+        boolean exp = true;
+        boolean result = goat.getEnergy() == 8;
 
-        assertEquals(result, exp);
+        assertEquals(exp, result);
     }
 
     @Test
@@ -29,16 +26,14 @@ class GoatTest {
         labyrinth.createGoat(1,1, 100);
         Goat goat = yard.getGoat();
         labyrinth.createCabbage(2,2);
-        boolean result = false;
+
         boolean result_after_move = goat.move(Direction.east());
-        boolean result_position = false;
         CellPosition newPosition = new CellPosition(1,2);
-        if(goat.position().equals(newPosition)) result_position =true;
-        if(result_after_move && result_position) result = true;
+        boolean result_position = goat.position().equals(newPosition);
+        boolean result = result_after_move && result_position;
         boolean exp = true;
 
-        assertEquals(result, exp);
-
+        assertEquals(exp, result);
     }
 
     @Test
@@ -54,10 +49,8 @@ class GoatTest {
         boolean result = goat.move(Direction.east());
         boolean exp = false;
 
-        assertEquals(result, exp);
-
+        assertEquals(exp, result);
     }
-
 
     @Test
     void canMovetoEmptyCell() {
@@ -70,8 +63,7 @@ class GoatTest {
         boolean result = goat.canMove(Direction.east());
         boolean exp = true;
 
-        assertEquals(result, exp);
-
+        assertEquals(exp, result);
     }
 
     @Test
@@ -86,8 +78,7 @@ class GoatTest {
         boolean result = goat.canMove(Direction.east());
         boolean exp = false;
 
-        assertEquals(result, exp);
-
+        assertEquals(exp, result);
     }
 
     @Test
@@ -102,15 +93,11 @@ class GoatTest {
         boolean result = goat.canMove(Direction.east());
         boolean exp = false;
 
-        assertEquals(result, exp);
-
+        assertEquals(exp, result);
     }
 
     @Test
     void expendEnergy() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(3,2, game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -120,18 +107,14 @@ class GoatTest {
         Goat goat = yard.getGoat();
         goat.move(Direction.south());
 
-        if ( goat.getEnergy() == 7) result = true;
+        boolean exp = true;
+        boolean result = goat.getEnergy() == 7;
 
-        assertEquals(result, exp);
-
-
+        assertEquals(exp, result);
     }
 
     @Test
     void eatCabbage() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(2,3, game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -140,17 +123,15 @@ class GoatTest {
         labyrinth.createCabbage(2, 1);
 
         yard.getGoat().move(Direction.south());
-        result = yard.getGoat().eatCabbage();
 
-        assertEquals(result, exp);
+        boolean exp = true;
+        boolean result = yard.getGoat().eatCabbage();
 
+        assertEquals(exp, result);
     }
 
     @Test
     void moveBoxYourselfUp() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(5,5, game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -159,18 +140,16 @@ class GoatTest {
         labyrinth.createBox(4, 1);
         labyrinth.createCabbage(4,4);
 
-        CellPosition pos = new CellPosition(4,1);
         yard.getGoat().moveBoxYourself(Direction.north());
-        if(yard.box(new CellPosition(3,1)) != null && yard.getGoat().position().equals(new CellPosition(2,1))) result = true;
 
-        assertEquals(result, exp);
+        boolean exp = true;
+        boolean result = yard.box(new CellPosition(3,1)) != null && yard.getGoat().position().equals(new CellPosition(2,1));
+
+        assertEquals(exp, result);
     }
 
     @Test
     void moveBoxYourselfDown() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(6,6, game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -179,18 +158,15 @@ class GoatTest {
         labyrinth.createBox(3, 1);
         labyrinth.createCabbage(4,4);
 
-        CellPosition pos = new CellPosition(3,1);
         yard.getGoat().moveBoxYourself(Direction.south());
-        if(yard.box(new CellPosition(4,1)) != null && yard.getGoat().position().equals(new CellPosition(5,1))) result = true;
+        boolean exp = true;
+        boolean result = yard.box(new CellPosition(4, 1)) != null && yard.getGoat().position().equals(new CellPosition(5, 1));
 
-        assertEquals(result, exp);
+        assertEquals(exp, result);
     }
 
     @Test
     void moveBoxYourselfLeft() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(5,5, game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -199,18 +175,16 @@ class GoatTest {
         labyrinth.createBox(3, 3);
         labyrinth.createCabbage(4,4);
 
-        CellPosition pos = new CellPosition(4,1);
         yard.getGoat().moveBoxYourself(Direction.west());
-        if(yard.box(new CellPosition(3,2)) != null && yard.getGoat().position().equals(new CellPosition(3,1))) result = true;
 
-        assertEquals(result, exp);
+        boolean exp = true;
+        boolean result = yard.box(new CellPosition(3, 2)) != null && yard.getGoat().position().equals(new CellPosition(3, 1));
+
+        assertEquals(exp, result);
     }
 
     @Test
     void moveBoxYourselfRight() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(5,5, game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -219,18 +193,16 @@ class GoatTest {
         labyrinth.createBox(3, 2);
         labyrinth.createCabbage(4,4);
 
-        CellPosition pos = new CellPosition(4,1);
         yard.getGoat().moveBoxYourself(Direction.east());
-        if(yard.box(new CellPosition(3,3)) != null && yard.getGoat().position().equals(new CellPosition(3,4))) result = true;
 
-        assertEquals(result, exp);
+        boolean exp = true;
+        boolean result = yard.box(new CellPosition(3, 3)) != null && yard.getGoat().position().equals(new CellPosition(3, 4));
+
+        assertEquals(exp, result);
     }
 
     @Test
     void moveBoxAwayFromYouDown() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(5,5, game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -239,18 +211,16 @@ class GoatTest {
         labyrinth.createBox(3, 1);
         labyrinth.createCabbage(4,4);
 
-        CellPosition pos = new CellPosition(3,1);
         yard.getGoat().moveBoxAwayFromYou(Direction.south());
-        if(yard.box(new CellPosition(4,1)) != null && yard.getGoat().position().equals(new CellPosition(3,1))) result = true;
 
-        assertEquals(result, exp);
+        boolean exp = true;
+        boolean result = yard.box(new CellPosition(4, 1)) != null && yard.getGoat().position().equals(new CellPosition(3, 1));
+
+        assertEquals(exp, result);
     }
 
     @Test
     void moveBoxAwayFromYouUp() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(5,5, game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -259,18 +229,16 @@ class GoatTest {
         labyrinth.createBox(2, 1);
         labyrinth.createCabbage(4,4);
 
-        CellPosition pos = new CellPosition(3,1);
         yard.getGoat().moveBoxAwayFromYou(Direction.north());
-        if(yard.box(new CellPosition(1,1)) != null && yard.getGoat().position().equals(new CellPosition(2,1))) result = true;
 
-        assertEquals(result, exp);
+        boolean exp = true;
+        boolean result = yard.box(new CellPosition(1, 1)) != null && yard.getGoat().position().equals(new CellPosition(2, 1));
+
+        assertEquals(exp, result);
     }
 
     @Test
     void moveBoxAwayFromYouLeft() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(6,6, game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -279,18 +247,16 @@ class GoatTest {
         labyrinth.createBox(3, 3);
         labyrinth.createCabbage(5,5);
 
-        CellPosition pos = new CellPosition(3,1);
         yard.getGoat().moveBoxAwayFromYou(Direction.west());
-        if(yard.box(new CellPosition(3,2)) != null && yard.getGoat().position().equals(new CellPosition(3,3))) result = true;
 
-        assertEquals(result, exp);
+        boolean exp = true;
+        boolean result = yard.box(new CellPosition(3, 2)) != null && yard.getGoat().position().equals(new CellPosition(3, 3));
+
+        assertEquals(exp, result);
     }
 
     @Test
     void moveBoxAwayFromYouRight() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(6,6, game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -299,46 +265,37 @@ class GoatTest {
         labyrinth.createBox(3, 4);
         labyrinth.createCabbage(5,5);
 
-        CellPosition pos = new CellPosition(3,1);
         yard.getGoat().moveBoxAwayFromYou(Direction.east());
-        if(yard.box(new CellPosition(3,5)) != null && yard.getGoat().position().equals(new CellPosition(3,4))) result = true;
 
-        assertEquals(result, exp);
+        boolean exp = true;
+        boolean result = yard.box(new CellPosition(3, 5)) != null && yard.getGoat().position().equals(new CellPosition(3, 4));
+
+        assertEquals(exp, result);
     }
 
     @Test
     void destroy() {
-        boolean result = false;
-        boolean exp = true;
-
         Goat goat = new Goat(9);
         goat.destroy();
 
-        result = goat.isDestroy();
+        boolean exp = true;
+        boolean result = goat.isDestroy();
 
-        assertEquals(result, exp);
-
+        assertEquals(exp, result);
     }
 
     @Test
     void isDestroy() {
-        boolean result = false;
-        boolean exp = true;
-
         Goat goat = new Goat(9);
 
+        boolean exp = true;
+        boolean result = !goat.isDestroy();
 
-        result = !goat.isDestroy();
-
-        assertEquals(result, exp);
+        assertEquals(exp, result);
     }
 
     @Test
-    void takekey() {
-
-        boolean result = false;
-        boolean exp = true;
-
+    void takeKey() {
         Game game = new Game();
         Yard yard = new Yard(6,6,game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -346,19 +303,16 @@ class GoatTest {
         labyrinth.createKey(1,1);
         labyrinth.createGoat(1,1, 8);
 
-        result = yard.getGoat().takeKey();
+        boolean exp = true;
+        boolean result = yard.getGoat().takeKey();
 
-        if(yard.getGoat().get_key() == null) result = false;
+        if (yard.getGoat().get_key() == null) result = false;
 
-        assertEquals(result, exp);
+        assertEquals(exp, result);
     }
 
     @Test
-    void usekey() {
-
-        boolean result = false;
-        boolean exp = true;
-
+    void useKey() {
         Game game = new Game();
         Yard yard = new Yard(6,6,game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -369,7 +323,9 @@ class GoatTest {
 
         yard.getGoat().takeKey();
         yard.getGoat().move(Direction.east());
-        result = yard.getGoat().useKey();
+
+        boolean exp = true;
+        boolean result = yard.getGoat().useKey();
         if(yard.getGoat().position().equals(new CellPosition(1,2))) {
             yard.getGoat().useKey();
             if(yard.getGoat().position().equals(new CellPosition(1,2))){
@@ -380,6 +336,6 @@ class GoatTest {
             }
         }
 
-        assertEquals(result, exp);
+        assertEquals(exp, result);
     }
 }

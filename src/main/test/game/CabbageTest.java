@@ -12,12 +12,11 @@ class CabbageTest {
         Yard yard = new Yard(4,4, game);
         Cabbage cabbage = new Cabbage(yard);
         cabbage.destroy();
+
         boolean exp = true;
-        boolean result = false;
+        boolean result = cabbage.isDestroy();
 
-        result = cabbage.isDestroy();
-
-        assertEquals(exp,result);
+        assertEquals(exp, result);
     }
 
     @Test
@@ -27,12 +26,9 @@ class CabbageTest {
         Cabbage cabbage = new Cabbage(yard);
 
         boolean exp = true;
-        boolean result = false;
+        boolean result = !(cabbage.isDestroy());
 
-        result = !(cabbage.isDestroy());
-
-        assertEquals(exp,result);
-
+        assertEquals(exp, result);
     }
 
     @Test
@@ -41,11 +37,10 @@ class CabbageTest {
         Yard yard = new Yard(4,4, game);
         Cabbage cabbage = new Cabbage(yard);
         cabbage.setPosition(new CellPosition(1,1));
+
         boolean exp = true;
-        boolean result = false;
+        boolean result = cabbage.position().equals(new CellPosition(1, 1));
 
-        if(cabbage.position().equals(new CellPosition(1,1))) result = true;
-
-        assertEquals(exp,result);
+        assertEquals(exp, result);
     }
 }

@@ -8,9 +8,6 @@ class TeleportTest {
 
     @Test
     void activate() {
-        boolean result = false;
-        boolean exp = true;
-
         Game game = new Game();
         Yard yard = new Yard(6,6,game);
         Labyrinth labyrinth = new Labyrinth(yard);
@@ -21,7 +18,8 @@ class TeleportTest {
 
         yard.getGoat().takeKey();
         yard.getGoat().move(Direction.east());
-        result = yard.get_teleport().activate(yard.getGoat());
+        boolean exp = true;
+        boolean result = yard.get_teleport().activate(yard.getGoat());
 
         if(yard.getGoat().position().equals(new CellPosition(1,2))) {
             yard.get_teleport().activate(yard.getGoat());
@@ -33,6 +31,6 @@ class TeleportTest {
             }
         }
 
-        assertEquals(result, exp);
+        assertEquals(exp, result);
     }
 }
