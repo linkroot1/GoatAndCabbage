@@ -67,7 +67,7 @@ public class MiddlePosition {
         if (!(other instanceof MiddlePosition)) {
             return false;
         } else {
-            MiddlePosition otherPosition = (MiddlePosition)other;
+            MiddlePosition otherPosition = (MiddlePosition) other;
             return this._cellPosition.equals(otherPosition._cellPosition) && this._direction.equals(otherPosition._direction);
         }
     }

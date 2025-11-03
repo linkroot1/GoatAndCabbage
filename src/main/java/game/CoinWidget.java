@@ -1,7 +1,5 @@
 package game;
 
-
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -27,13 +25,9 @@ public class CoinWidget extends JPanel {
         }
     }
 
-    public void drawCoin(Graphics g, Coin coin, Point point, int CELL_SIZE ){
+    public void drawCoin(Graphics g, Point point) {
         g.setColor(Color.RED);
-
-        String str = "";
-        g.drawImage(this.getImage(), point.x, point.y, null );
-
-        //g.drawImage(this.getImage(), point.x+CELL_SIZE/8, point.y+CELL_SIZE/4+15, null );
+        g.drawImage(this.getImage(), point.x, point.y, null);
         g.setColor(Color.BLACK);   // восстанавливаем цвет пера
     }
 
@@ -50,9 +44,7 @@ public class CoinWidget extends JPanel {
     }
 
     private static File getCoinFile() {
-        File file = null;
-        file = new File("resources/" +"coin.jpeg");
-        return file;
+        return new File("resources/" + "coin.jpeg");
     }
 
     private BufferedImage coinImageWithChargeText(BufferedImage coinImage) {
@@ -60,22 +52,18 @@ public class CoinWidget extends JPanel {
         Graphics g = img.getGraphics();
         g.drawImage(coinImage, 0, 0, null);
 
-
         g.setFont(new Font("Arial", Font.PLAIN, 20));
         g.setColor(coinChargeTextColor());
         g.drawString(coinChargeText(), 5, 5);
-
 
         return img;
     }
 
     private String coinChargeText() {
-        return "" + "" + "";
+        return "";
     }
 
     private Color coinChargeTextColor() {
         return GameWidgetsUtils.chargeTextColor(0, 100);
     }
-
-
 }

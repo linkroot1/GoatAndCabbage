@@ -10,17 +10,9 @@ public class Cabbage {
 
     public Cabbage(Yard _yard) {
         this._yard = _yard;
-
     }
-
 
     //----------Методы класса--------------------
-
-    //Получить загон
-    public Yard get_yard() {
-        return _yard;
-    }
-
 
     //Уничтожить
     public void destroy() {
@@ -38,14 +30,12 @@ public class Cabbage {
         this._yard = _yard;
     }
 
-    protected boolean setPosition(CellPosition pos){
+    protected boolean setPosition(CellPosition pos) {
         _position = pos;
         return true;
     }
 
-    public CellPosition position(){
-        if(this == null) return null;
+    public CellPosition position() {
         return _position;
     }
-
 }

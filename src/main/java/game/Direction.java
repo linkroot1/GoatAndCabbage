@@ -8,19 +8,8 @@ public class Direction {
         if (angle < 0) {
             angle += 360;
         }
-
         this._angle = angle;
     }
-
-
-
-    // 1 - left - west
-    // 2 - right - east
-    // 3 - up - north
-    // 4 - down - south
-
-
-
 
     public static Direction north() {
         return new Direction(90);
@@ -54,11 +43,11 @@ public class Direction {
         return new Direction(this._angle + 180);
     }
 
-    public Direction rightword() {
+    public Direction rightWord() {
         return this.clockwise();
     }
 
-    public Direction leftword() {
+    public Direction leftWord() {
         return this.anticlockwise();
     }
 

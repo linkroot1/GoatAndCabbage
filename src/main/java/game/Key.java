@@ -4,7 +4,6 @@ public class Key implements collectedObject{
     private CellPosition _position;
     private Yard _yard;
 
-
     public CellPosition position() {
         return _position;
     }

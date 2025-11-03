@@ -30,13 +30,10 @@ public class WallWidget extends BlockWidget {
     public void drawWall(Graphics g, Point lefTop, Direction direct, int CELL_SIZE) {
         g.setColor(Color.RED);
 
-        if(direct.equals(Direction.west()) || direct.equals(Direction.east()))
-        {
-            g.drawLine(lefTop.x, lefTop.y, lefTop.x, lefTop.y+CELL_SIZE);
-        }
-        else
-        {
-            g.drawLine(lefTop.x, lefTop.y, lefTop.x+CELL_SIZE, lefTop.y);
+        if (direct.equals(Direction.west()) || direct.equals(Direction.east())) {
+            g.drawLine(lefTop.x, lefTop.y, lefTop.x, lefTop.y + CELL_SIZE);
+        } else {
+            g.drawLine(lefTop.x, lefTop.y, lefTop.x + CELL_SIZE, lefTop.y);
         }
 
         g.setColor(Color.BLACK);   // восстанавливаем цвет пера

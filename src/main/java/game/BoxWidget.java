@@ -27,13 +27,9 @@ public class BoxWidget extends JPanel {
         }
     }
 
-    public void drawBox(Graphics g, Box box, Point point, int CELL_SIZE ){
+    public void drawBox(Graphics g, Point point) {
         g.setColor(Color.RED);
-
-        String str = "";
-        g.drawImage(this.getImage(), point.x, point.y, null );
-
-        //g.drawImage(this.getImage(), point.x+CELL_SIZE/8, point.y+CELL_SIZE/4+15, null );
+        g.drawImage(this.getImage(), point.x, point.y, null);
         g.setColor(Color.BLACK);   // восстанавливаем цвет пера
     }
 
@@ -50,9 +46,7 @@ public class BoxWidget extends JPanel {
     }
 
     private static File getBoxFile() {
-        File file = null;
-        file = new File("resources/" +"box.jpg");
-        return file;
+        return new File("resources/" + "box.jpg");
     }
 
     private BufferedImage boxImageWithChargeText(BufferedImage boxImage) {
@@ -65,16 +59,14 @@ public class BoxWidget extends JPanel {
         g.setColor(boxChargeTextColor());
         g.drawString(boxChargeText(), 5, 5);
 
-
         return img;
     }
 
     private String boxChargeText() {
-        return "" + "" + "";
+        return "";
     }
 
     private Color boxChargeTextColor() {
         return GameWidgetsUtils.chargeTextColor(0, 100);
     }
-
 }

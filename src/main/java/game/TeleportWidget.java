@@ -23,13 +23,9 @@ public class TeleportWidget extends JPanel {
         }
     }
 
-    public void drawTeleport(Graphics g, Teleport teleport, Point point, int CELL_SIZE ){
+    public void drawTeleport(Graphics g, Point point) {
         g.setColor(Color.RED);
-
-        String str = "";
-        g.drawImage(this.getImage(), point.x, point.y, null );
-
-        //g.drawImage(this.getImage(), point.x+CELL_SIZE/8, point.y+CELL_SIZE/4+15, null );
+        g.drawImage(this.getImage(), point.x, point.y, null);
         g.setColor(Color.BLACK);   // восстанавливаем цвет пера
     }
 
@@ -46,9 +42,7 @@ public class TeleportWidget extends JPanel {
     }
 
     private static File getTeleportFile() {
-        File file = null;
-        file = new File("resources/" +"portal.png");
-        return file;
+        return new File("resources/" + "portal.png");
     }
 
     private BufferedImage teleportImageWithChargeText(BufferedImage teleportImage) {
@@ -56,21 +50,18 @@ public class TeleportWidget extends JPanel {
         Graphics g = img.getGraphics();
         g.drawImage(teleportImage, 1, 1, null);
 
-
         g.setFont(new Font("Arial", Font.PLAIN, 20));
         g.setColor(teleportChargeTextColor());
         g.drawString(teleportChargeText(), 5, 5);
-
 
         return img;
     }
 
     private String teleportChargeText() {
-        return "" + "" + "";
+        return "";
     }
 
     private Color teleportChargeTextColor() {
         return GameWidgetsUtils.chargeTextColor(0, 100);
     }
-
 }

@@ -54,7 +54,7 @@ class DirectionTest {
     @Test
     void rightWord() {
         Direction direction = Direction.south();
-        Direction newDirection = direction.rightword();
+        Direction newDirection = direction.rightWord();
 
         boolean exp = true;
         boolean result = newDirection.equals(Direction.west());
@@ -65,7 +65,7 @@ class DirectionTest {
     @Test
     void leftWord() {
         Direction direction = Direction.west();
-        Direction newDirection = direction.leftword();
+        Direction newDirection = direction.leftWord();
 
         boolean exp = true;
         boolean result = newDirection.equals(Direction.south());

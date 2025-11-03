@@ -6,14 +6,13 @@ import java.util.HashMap;
 public class CellPosition {
     private static CellRange _horizontalRange = new CellRange(0, 0);
     private static CellRange _verticalRange = new CellRange(0, 0);
-    private int _row;
-    private int _column;
+    private final int _row;
+    private final int _column;
 
     public static void setHorizontalRange(int min, int max) {
         if (CellRange.isValidRange(min, max)) {
             _horizontalRange = new CellRange(min, max);
         }
-
     }
 
     public static CellRange horizontalRange() {
@@ -24,7 +23,6 @@ public class CellPosition {
         if (CellRange.isValidRange(min, max)) {
             _verticalRange = new CellRange(min, max);
         }
-
     }
 
     public static CellRange verticalRange() {
@@ -79,13 +77,12 @@ public class CellPosition {
     }
 
     private int[] calcNewPosition(int row, int col, Direction direct) {
-        HashMap<Direction, int[]> offset = new HashMap();
+        HashMap<Direction, int[]> offset = new HashMap<>();
         offset.put(Direction.north(), new int[]{0, -1});
         offset.put(Direction.south(), new int[]{0, 1});
         offset.put(Direction.east(), new int[]{1, 0});
         offset.put(Direction.west(), new int[]{-1, 0});
-        int[] newPos = new int[]{this._row + ((int[])offset.get(direct))[1], this._column + ((int[])offset.get(direct))[0]};
-        return newPos;
+        return new int[]{this._row + ((int[]) offset.get(direct))[1], this._column + ((int[]) offset.get(direct))[0]};
     }
 
     public boolean equals(Object other) {
@@ -94,7 +91,7 @@ public class CellPosition {
         } else if (!(other instanceof CellPosition)) {
             return false;
         } else {
-            CellPosition otherPosition = (CellPosition)other;
+            CellPosition otherPosition = (CellPosition) other;
             return this._row == otherPosition._row && this._column == otherPosition._column;
         }
     }

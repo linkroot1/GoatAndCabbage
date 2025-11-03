@@ -10,10 +10,6 @@ public abstract class BlockWidget extends JPanel {
 
     protected final Orientation orientation;
 
-    public Orientation getOrientation() {
-        return orientation;
-    }
-
     public BlockWidget(Orientation orientation) {
         this.orientation = orientation;
         setPreferredSize(getDimensionByOrientation());

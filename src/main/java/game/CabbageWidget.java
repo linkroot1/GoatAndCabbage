@@ -11,20 +11,15 @@ public class CabbageWidget extends JPanel {
 
     private Cabbage _cabbage;
 
-
     public CabbageWidget(Cabbage cabbage) {
         super();
         this._cabbage = cabbage;
 
     }
 
-    public void drawCabbage(Graphics g, Cabbage cabbage, Point point, int CELL_SIZE ){
+    public void drawCabbage(Graphics g, Point point) {
         g.setColor(Color.RED);
-
-        String str = "";
-        g.drawImage(this.getImage(), point.x, point.y, null );
-
-        //g.drawImage(this.getImage(), point.x+CELL_SIZE/8, point.y+CELL_SIZE/4+15, null );
+        g.drawImage(this.getImage(), point.x, point.y, null);
         g.setColor(Color.BLACK);   // восстанавливаем цвет пера
     }
 
@@ -41,9 +36,7 @@ public class CabbageWidget extends JPanel {
     }
 
     private static File getCabbageFile() {
-        File file = null;
-        file = new File("resources/" +"cabbage.png");
-        return file;
+        return new File("resources/" + "cabbage.png");
     }
 
     private BufferedImage cabbageImageWithChargeText(BufferedImage cabbageImage) {
@@ -51,17 +44,15 @@ public class CabbageWidget extends JPanel {
         Graphics g = img.getGraphics();
         g.drawImage(cabbageImage, 0, 0, null);
 
-
         g.setFont(new Font("Arial", Font.PLAIN, 20));
         g.setColor(cabbageChargeTextColor());
         g.drawString(cabbageChargeText(), 5, 5);
-
 
         return img;
     }
 
     private String cabbageChargeText() {
-        return "" + "" + "";
+        return "";
     }
 
     private Color cabbageChargeTextColor() {
@@ -73,7 +64,7 @@ public class CabbageWidget extends JPanel {
         super.paintComponent(g);
 
         try {
-            BufferedImage image = ImageIO.read(new File("resources/" +"cabbage.png"));
+            BufferedImage image = ImageIO.read(new File("resources/" + "cabbage.png"));
             image = ImageUtils.resizeImage(image, 30, 30);
             g.drawImage(image, 0, 0, null);
         } catch (IOException e) {

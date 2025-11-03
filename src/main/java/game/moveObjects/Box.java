@@ -12,7 +12,7 @@ public class Box implements movableObjects {
     //----------Свойства класса-----------------
 
     private CellPosition _position;
-    private Yard _yard;
+    private final Yard _yard;
 
 
     //----------Конструктор класса--------------------
@@ -26,14 +26,12 @@ public class Box implements movableObjects {
 
     //Переместиться
     boolean move(Direction direction){
-
         if (this.canMove(direction)) {
             this.setPosition(this.position().next(direction));
             return true;
         }
         return false;
     }
-
 
     //Проверить можно ли переместиться
     public boolean canMove(Direction direction){
@@ -48,16 +46,9 @@ public class Box implements movableObjects {
         if (this._yard.isWall(nextMiddlePos)) return false;
 
 
-            //Проверяем есть ли коробка
-        else if (this._yard.isBox(nextCellPos)) return false;
-
-
-        return true;
+        //Проверяем есть ли коробка
+        else return !this._yard.isBox(nextCellPos);
     }
-
-
-
-
 
     public boolean setPosition(CellPosition pos){
         _position = pos;

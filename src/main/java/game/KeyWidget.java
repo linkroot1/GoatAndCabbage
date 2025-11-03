@@ -1,7 +1,5 @@
 package game;
 
-
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -25,13 +23,9 @@ public class KeyWidget extends JPanel {
         }
     }
 
-    public void drawKey(Graphics g, Key key, Point point, int CELL_SIZE ){
+    public void drawKey(Graphics g, Point point) {
         g.setColor(Color.RED);
-
-        String str = "";
-        g.drawImage(this.getImage(), point.x, point.y, null );
-
-        //g.drawImage(this.getImage(), point.x+CELL_SIZE/8, point.y+CELL_SIZE/4+15, null );
+        g.drawImage(this.getImage(), point.x, point.y, null);
         g.setColor(Color.BLACK);   // восстанавливаем цвет пера
     }
 
@@ -48,9 +42,7 @@ public class KeyWidget extends JPanel {
     }
 
     private static File getKeyFile() {
-        File file = null;
-        file = new File("resources/" +"key.png");
-        return file;
+        return new File("resources/" + "key.png");
     }
 
     private BufferedImage keyImageWithChargeText(BufferedImage keyImage) {
@@ -58,17 +50,15 @@ public class KeyWidget extends JPanel {
         Graphics g = img.getGraphics();
         g.drawImage(keyImage, 0, 0, null);
 
-
         g.setFont(new Font("Arial", Font.PLAIN, 20));
         g.setColor(keyChargeTextColor());
         g.drawString(keyChargeText(), 5, 5);
-
 
         return img;
     }
 
     private String keyChargeText() {
-        return "" + "" + "";
+        return "";
     }
 
     private Color keyChargeTextColor() {
